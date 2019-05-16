@@ -2,8 +2,8 @@ version: '2'
 
 services:
   webserver:
-    build: ./docker/webserver
-    image: sakwo.sastodeal.com:4567/bijay135/php-ci-cd
+    build: ./webserver
+    image: php-ci-cd
     ports:
       - "80:80"
       - "443:443"
