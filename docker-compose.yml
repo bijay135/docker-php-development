@@ -16,6 +16,7 @@ services:
         ports: 
             - "3305:3306"
         environment:
+            - MYSQL_ALLOW_EMPTY_PASSWORD="true"
             - MYSQL_DATABASE=php-test
         volumes:
             - ./db:/var/lib/mysql
