@@ -1,26 +1,33 @@
-version: '3'
+version: '3.1'
 
 services:
     www:
         build: .
-                    # image: php-ci-cd
+        image: php-ci-cd
         ports:
             - "80:80"
         volumes:
             - ./www:/var/www/html
         links:
             - db
+        networks:
+            - default
 
     db:
         image: mysql:8.0    
         ports: 
             - "3305:3306"
+        command: --default-authentication-plugin=mysql_native_password
         environment:
             - MYSQL_ALLOW_EMPTY_PASSWORD="true"
+            - MYSQL_USER: admin
+            - MYSQL_PASSWORD: admin
             - MYSQL_DATABASE=php-test
         volumes:
             - ./db:/var/lib/mysql
-      
+        networks:
+            - default
+            
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         ports:
