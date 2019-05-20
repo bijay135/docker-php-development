@@ -1,5 +1,5 @@
 # pph-cd-cd
-- PHP enviroment setup using docker-compose
+# PHP enviroment setup using docker-compose
 - Apache
 - PHP
 - MySQl
