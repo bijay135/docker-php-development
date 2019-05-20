@@ -3,7 +3,7 @@ version: '3'
 services:
     www:
         build: .
-        image: php-ci-cd
+                    # image: php-ci-cd
         ports:
             - "80:80"
         volumes:
