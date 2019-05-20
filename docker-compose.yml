@@ -10,8 +10,6 @@ services:
             - ./www:/var/www/html
         links:
             - db
-        networks:
-            - default
 
     db:
         image: mysql:8.0    
@@ -25,8 +23,6 @@ services:
             MYSQL_DATABASE: php-ci-cd
         volumes:
             - ./db:/var/lib/mysql
-        networks:
-            - default
             
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
@@ -38,5 +34,3 @@ services:
             MYSQL_PASSWORD: admin
         links: 
             - db:db
-        networks:
-            - default
