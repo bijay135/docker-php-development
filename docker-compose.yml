@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3'
 
 services:
     www:
@@ -16,10 +16,10 @@ services:
     db:
         image: mysql:8.0    
         ports: 
-            - "3305:3306"
+            - "3306:3306"
         command: --default-authentication-plugin=mysql_native_password
         environment:
-            - MYSQL_ALLOW_EMPTY_PASSWORD="true"
+            - MYSQL_ALLOW_EMPTY_PASSWORD = "true"
             - MYSQL_USER: admin
             - MYSQL_PASSWORD: admin
             - MYSQL_DATABASE=php-test
