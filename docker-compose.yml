@@ -22,7 +22,7 @@ services:
             - MYSQL_ALLOW_EMPTY_PASSWORD = "true"
             - MYSQL_USER: admin
             - MYSQL_PASSWORD: admin
-            - MYSQL_DATABASE=php-test
+            - MYSQL_DATABASE=php-ci-cd
         volumes:
             - ./db:/var/lib/mysql
         networks:
