@@ -9,7 +9,8 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 
-RUN COPY apache-config.conf /etc/apache2/sites-enabled/000-default.conf
+RUN rm -f /etc/apache2/sites-enabled/000-default.conf
+COPY apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 
 RUN chown -R www-data:www-data www
-# chmod -R 777 /var/www/html/pctech
+RUN chmod -R 777 www
