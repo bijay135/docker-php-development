@@ -11,5 +11,5 @@ ENV APACHE_RUN_GROUP www-data
 COPY apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 
 cd ..
-sudo chown -R www-data:www-data /www
+RUN chown -R www-data:www-data /www
 # sudo chmod -R 777 /var/www/html/pctech
