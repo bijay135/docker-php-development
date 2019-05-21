@@ -11,6 +11,3 @@ ENV APACHE_RUN_GROUP www-data
 
 RUN rm -f /etc/apache2/sites-enabled/000-default.conf
 COPY apache-config.conf /etc/apache2/sites-enabled/000-default.conf
-
-# chown -R www-data:www-data /var/www/html
-# chmod -R 777 /var/www/html
