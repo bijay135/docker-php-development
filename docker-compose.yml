@@ -2,7 +2,8 @@ version: '3'
 
 services:
     www:
-        build: ./server
+        build: 
+            context: ./server
         image: php-ci-cd
         container_name: php-ci-cd
         ports:
