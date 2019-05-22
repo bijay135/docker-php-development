@@ -6,8 +6,5 @@ RUN service apache2 restart
 
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
-ENV APACHE_RUN_USER www-data
-ENV APACHE_RUN_GROUP www-data
-
 RUN rm -f /etc/apache2/sites-enabled/000-default.conf
-COPY apache-config.conf /etc/apache2/sites-enabled/000-default.conf
+COPY codeigniter.conf /etc/apache2/sites-enabled/000-default.conf
