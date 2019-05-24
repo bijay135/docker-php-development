@@ -18,8 +18,8 @@ services:
             
     php:
         build: ./server
-        image: php
-        container_name: php
+        image: php-ci-cd
+        container_name: php-ci-cd
         restart: always
         volumes:
             - ./www:/var/www/html
