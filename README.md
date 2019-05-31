@@ -136,3 +136,20 @@ This project uses the following ports :
 ___
 
 ## Clone this repository
+
+Git clone this repository into your server :
+
+```
+git clone https://sakwo.sastodeal.com/bijay135/php-ci-cd
+```
+
+Go to the project directory :
+
+```
+cd php-ci-cd
+```
+
+### Repository Tree Structure
+
+
+
