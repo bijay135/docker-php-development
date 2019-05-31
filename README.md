@@ -38,3 +38,10 @@
 ___
 
 ## Install Prerequisites
+
+These are the required requisties for buildling a PHP enviroment :
+
+* [Git](https://git-scm.com/downloads)
+* [Docker](https://docs.docker.com/engine/installation/)
+* [Docker Compose](https://docs.docker.com/compose/install/)
+* [Certbot](https://certbot.eff.org/)
