@@ -15,11 +15,11 @@
 
     Clone your web project inside
 
-4. [Configure Nginx and PHP config](#configure-nginx-php-config)
+4. [Configure Nginx and PHP config](#configure-nginx-and-php-config)
 
     Configure the Nginx and PHP config files as per your web project
     
-5. [Configure Dockerfile and docker-compose.yml](#configure-dockerfile-and-docker-compose.yml)
+5. [Configure Dockerfile and docker-compose.yml](#configure-dockerfile-and-docker-composeyml)
 
     Configure the Dockerfile and docker-compose.yml as per your web project
 
@@ -152,4 +152,96 @@ cd php-ci-cd
 ### Repository Tree Structure
 
 ![Project Tree](doc/project-tree.png)
+
+___
+
+## Install your web project
+
+After moving inside the repository root directory. Move inside `www` folder :
+
+```sh
+cd www
+```
+
+Now `Git` clone your web project inside it :
+
+```sh
+git clone https://your_project_link
+```
+
+Now your project has been installed into this repository sccessfully
+
+___
+
+## Configure Nginx and PHP config
+
+Open the Nginx config using `Vim` editor :
+
+```sh
+sudo vi server/nginx/default.conf
+```
+
+```sh
+# Nginx configuration
+
+server {
+	listen 80;
+	server_name host_name.com www.host_name.com;
+	
+	root /var/www/html/web_root;
+	index index.php;
+    
+	location / {
+		try_files $uri $uri/ /index.php;
+	}
+	
+	location ~ \.php$ {
+		fastcgi_pass php:9000;
+		include fastcgi_params;
+		fastcgi_index index.php;
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+	}
+}
+```
+
+Replace the `host_name.com` with your domain name and `web_root` with top level directory of your web project in all occurrences.
+
+Save the config file by pressing `escape` inside vim editor and typing the following :
+
+```sh
+:wq
+```
+
+Hit `enter` to save and quit the editor
+
+___
+
+Open the PHP config using Vim editor :
+
+```sh
+sudo vi server/php/php.ini
+```
+
+```sh
+# PHP configuration
+
+```
+
+Add your required PHP `configuration` and press `escape` and type following to save and exit :
+
+```sh
+:wq
+```
+
+___
+
+## Configure Dockerfile and docker-compose.yml
+
+
+
+
+
+
+
+
 
