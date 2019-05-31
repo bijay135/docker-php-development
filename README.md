@@ -151,5 +151,5 @@ cd php-ci-cd
 
 ### Repository Tree Structure
 
-![Project Tree](https://sakwo.sastodeal.com/bijay135/php-ci-cd/blob/master/doc/project-tree.png)
+![Project Tree](doc/project-tree.png)
 
