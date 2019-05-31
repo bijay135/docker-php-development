@@ -34,7 +34,6 @@
 8. [Using docker commands](#using-docker-commands)
 
     Use these docker commands for recurring operations
-    
 ___
 
 ## Install Prerequisites
@@ -42,6 +41,94 @@ ___
 These are the required requisties for buildling a PHP enviroment :
 
 * [Git](https://git-scm.com/downloads)
+
+Check if `Git` is installed using the command :
+
+```
+git --version
+```
+
+___
+
 * [Docker](https://docs.docker.com/engine/installation/)
+
+Install `Docker` easily by using this script :
+
+```
+curl -sSL https://get.docker.com/ | sh
+```
+
+Enable `Docker` at startup
+
+```
+systemctl docker enable
+```
+
+Verify `Docker` version :
+
+```
+docker --version
+```
+
+___
+
 * [Docker Compose](https://docs.docker.com/compose/install/)
-* [Certbot](https://certbot.eff.org/)
+
+Install `Docker Compose` using this script :
+
+```
+sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+
+Set file permissions :
+
+```
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+Verify `Docker Compose` version :
+
+```
+docker-compose --version
+```
+
+___
+
+* [Certbot](https://certbot.eff.org/) [`Optional`]
+
+Add the `Certbot` repository :
+
+```
+sudo add-apt-repository ppa:certbot/certbot
+```
+
+Update the package list :
+
+```
+sudo apt-get update
+```
+
+Finally, install `Certbot` package :
+
+```
+sudo apt-get install certbot
+```
+
+___
+
+### Docker Image to use
+
+* [Nginx](https://hub.docker.com/_/nginx/)
+* [PHP-FPM](https://hub.docker.com/r/nanoninja/php-fpm/)
+* [MySQL](https://hub.docker.com/_/mysql/)
+* [PHPMyAdmin](https://hub.docker.com/r/phpmyadmin/phpmyadmin/)
+
+
+This project uses the following ports :
+
+| Server     | Port |
+|------------|------|
+| Nginx      | 80   |
+| Nginx SSL  | 443  |
+| MySql      | 3306 |
+| PHPMyAdmin | 8000 |
