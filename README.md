@@ -11,7 +11,7 @@
 
     Clone this repository into your server
 
-3. [Install your web project](#install-your-web-project)
+3. [Install and configure your web project](#install--and-configure-your-web-project)
 
     Clone your web project inside
 
@@ -155,7 +155,7 @@ cd php-ci-cd
 
 ___
 
-## Install your web project
+## Install and configure your web project
 
 After moving inside the repository root directory. Move inside `www` folder :
 
