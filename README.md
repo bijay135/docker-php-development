@@ -237,6 +237,126 @@ ___
 
 ## Configure Dockerfile and docker-compose.yml
 
+Edit the `Dockerfile` to include any additional required plugins :
+
+```sh
+sudo vi server/Dockerfile
+```
+
+```sh
+FROM php:7-fpm
+RUN docker-php-ext-install mysqli
+```
+
+Press `escape` and save the file :
+
+```sh
+:wq
+```
+
+___
+
+Open the `Docker Compose` configuration file :
+
+```sh
+sudo vi docker-compose.yml
+```
+
+```sh
+version: '3'
+
+services:
+    nginx:
+        image: nginx:1.16.0
+        container_name: nginx
+        restart: always
+        ports:
+            - "80:80"
+            - "443:443"  
+        volumes:
+            - ./server/nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - ./www:/var/www/html
+            - /etc/letsencrypt:/etc/letsencrypt
+        links:
+            - php
+            - mysql
+        
+    php:
+        build: ./server
+        image: php-ci-cd
+        container_name: php-ci-cd
+        restart: always
+        volumes:
+            - ./server/php/php.ini:/usr/local/etc/php/conf.d/php.ini
+            - ./www:/var/www/html
+           
+    mysql:
+        image: mysql:5.7
+        container_name: mysql       
+        restart: always
+        ports: 
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root    
+        volumes:
+            - ./mysql/data:/var/lib/mysql
+            - ./mysql/dumps:/docker-entrypoint-initdb.d
+            
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
+        restart: always
+        ports:
+            - "8000:80"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+        links: 
+            - mysql:db
+```
+
+Under `php` service edit the `image` and `container_name` as per web project name.
+
+The ports can be edited in `ports` tag. Port works as follows `external_port:internal_port`
+
+The volumes can be mapped in `volumes` tag. Volumes works as follows `host_directory:container_directory`.
+A symbloic link is established from host to container so any changes in host directroy is immediately seen inside container.
+
+Hit `escape` and save the edited configuration :
+
+```sh
+:wq
+```
+
+___
+
+## Run your project
+
+Now everything is ready to run the web project.
+
+Once inside the repository root. Type the command to build and run everything :
+
+```sh
+docker-compose up -d
+```
+
+`-d` flag means the task will run in deatached mode
+
+To stop and remove all containers use the command :
+
+```sh
+docker-compose down
+```
+
+Verify if all the containers are up and running using :
+
+```sh
+docker ps -a
+```
+
+`-a` flag forces to show even stopped containers
+
+![Docker Containers]()
+
 
 
 
