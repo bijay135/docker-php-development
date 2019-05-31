@@ -44,7 +44,7 @@ These are the required requisties for buildling a PHP enviroment :
 
 Check if `Git` is installed using the command :
 
-```
+```sh
 git --version
 ```
 
@@ -54,19 +54,19 @@ ___
 
 Install `Docker` easily by using this script :
 
-```
+```sh
 curl -sSL https://get.docker.com/ | sh
 ```
 
 Enable `Docker` at startup
 
-```
+```sh
 systemctl docker enable
 ```
 
 Verify `Docker` version :
 
-```
+```sh
 docker --version
 ```
 
@@ -76,19 +76,19 @@ ___
 
 Install `Docker Compose` using this script :
 
-```
+```sh
 sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
 Set file permissions :
 
-```
+```sh
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 Verify `Docker Compose` version :
 
-```
+```sh
 docker-compose --version
 ```
 
@@ -98,19 +98,19 @@ ___
 
 Add the `Certbot` repository :
 
-```
+```sh
 sudo add-apt-repository ppa:certbot/certbot
 ```
 
 Update the package list :
 
-```
+```sh
 sudo apt-get update
 ```
 
 Finally, install `Certbot` package :
 
-```
+```sh
 sudo apt-get install certbot
 ```
 
@@ -139,13 +139,13 @@ ___
 
 Git clone this repository into your server :
 
-```
+```sh
 git clone https://sakwo.sastodeal.com/bijay135/php-ci-cd
 ```
 
 Go to the project directory :
 
-```
+```sh
 cd php-ci-cd
 ```
 
