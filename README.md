@@ -11,7 +11,7 @@
 
     Clone this repository into your server
 
-3. [Install and configure your web project](#install--and-configure-your-web-project)
+3. [Install and configure your web project](#install-and-configure-your-web-project)
 
     Clone your web project inside
 
