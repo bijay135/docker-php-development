@@ -355,13 +355,13 @@ docker ps -a
 
 `-a` flag forces to show even stopped containers
 
-![Docker Containers]()
+![Docker Containers](doc/docker-containers.png)
 
+The `STATUS` shows how long the containers are up and running whule `PORTS` shows the internal and external port binding
 
+Now go to your public `ip address` or `domain_name` and verify that the project is running successfully.
 
+___
 
-
-
-
-
+## Generate SSL certificates and setup auto renew
 
