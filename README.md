@@ -132,3 +132,7 @@ This project uses the following ports :
 | Nginx SSL  | 443  |
 | MySql      | 3306 |
 | PHPMyAdmin | 8000 |
+
+___
+
+## Clone this repository
