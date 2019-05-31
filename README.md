@@ -169,7 +169,11 @@ Now `Git` clone your web project inside it :
 git clone https://your_project_link
 ```
 
-Now your project has been installed into this repository sccessfully
+Change your `database` configuration. Use `mysql` as hostname to connect via a container
+
+Change the `base_url` of your project to `/` since `Nginx` manages the `web_root` configuration
+
+Now your project has been installed and configured to use this repository successfully
 
 ___
 
