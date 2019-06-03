@@ -31,7 +31,11 @@
 
     Additionally, generate SSL certificates for securing server and setup auto renew
 
-8. [Using docker commands](#using-docker-commands)
+8. [Update Nginx to load SSL certificates](#update-nginx-to-load-ssl-certificates)
+
+    Finally, update your Nginx config to load the SSL certificates and route https:// by default
+
+9. [Using docker commands](#using-docker-commands)
 
     Use these docker commands for recurring operations
 ___
@@ -368,4 +372,30 @@ Now go to your public `ip address` or `domain_name` and verify that the project 
 ___
 
 ## Generate SSL certificates and setup auto renew
+
+If you followed all the previous steps, by now you should already have your web project up and running using `http`
+You also should have `Certbot` fully installed and ready to run
+
+Run the command below to generate `SSL certifificates` :
+
+```sh
+sudo certbot certonly --webroot -w ~/project/www/web_root -d domain_name.com
+```
+
+Replace `~/project/www/web_root` with your project path in your host and `domain_name.com` with your domain name
+
+You will need to supply a valid `email address` to certbot to make the certificates fully secure
+
+Certbot will do a reachability test using `webroot` and `domain_name.com` and save certificates in `/etc/letsencrypt` if
+it was successfull.
+
+You can manually check the certificates by using this command, replace `domain_name.com` with your domain naim supplied previously :
+
+```sh
+sudo ls /etc/letsencrypt/live/domain_name.com
+```
+
+![certificates]()
+
+
 
