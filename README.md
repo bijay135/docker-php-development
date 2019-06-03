@@ -347,7 +347,7 @@ Once inside the repository root. Type the command to build and run everything :
 docker-compose up -d
 ```
 
-`-d` flag means the task will run in deatached mode
+`-d` flag means the task will run in deattached mode
 
 To stop and remove all containers use the command :
 
