@@ -523,7 +523,7 @@ ___
 
 ## Using docker commands
 
-Here are some common re-occuring docker commands that may be helpful
+Here are some commonly re-occuring docker commands that may be helpful
 
 Check docker containers :
 
@@ -543,7 +543,6 @@ Check docker networks :
 docker network ls
 ```
 
-
 Check docker volumes :
 
 ```sh
@@ -560,4 +559,16 @@ docker system prune
 
 ```sh
 docker exec -it nginx /bin/bash
+```
+
+Up docker services using docker compose
+
+```sh
+docker-compose up -d
+```
+
+Stop and delete all docker services using docker compose
+
+```sh
+docker-compose down
 ```
