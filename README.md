@@ -581,11 +581,7 @@ docker container_name logs
 
 Replace `container_name` with your container like `Nginx`
 
-___
-
-Check docker-compose logs
-
-First move into project root then :
+Check docker-compose logs, first move into repository root then :
 
 ```sh
 docker-compose logs
