@@ -518,3 +518,46 @@ docker exec nginx nginx -s reload
 Now, test your domain via internet it should be fully secured
 
 ![fully-secured](doc/fully-secured.png)
+
+___
+
+## Using docker commands
+
+Here are some common re-occuring docker commands that may be helpful
+
+Check docker containers :
+
+```sh
+docker ps -a
+```
+
+Check docker images :
+
+```sh
+docker images
+```
+
+Check docker networks :
+
+```sh
+docker network ls
+```
+
+
+Check docker volumes :
+
+```sh
+docker volume ls
+```
+
+Prune system of all clinging docker containers, images
+
+```sh
+docker system prune
+```
+
+`/bin/bash` inside docker container :
+
+```sh
+docker exec -it nginx /bin/bash
+```
