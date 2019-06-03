@@ -448,7 +448,7 @@ First rename the `default.conf` :
 sudo mv default.conf default.conf.bk
 ```
 
-Now rename the `default_ssl.conf` into `default-conf` :
+Now rename the `default_ssl.conf` into `default.conf` :
 
 ```sh
 sudo mv default.ssl.conf default.conf
@@ -507,7 +507,7 @@ domain name in all occurences.
 
 Make sure you also replace `host_name.com` in `ssl certificates` section with the one ssl certificates is generated for
 
-Now save and exit the config using `wq`
+Now save and exit the config using `:wq`
 
 Finally reload the nginx to load new `config` along with `ssl certificates` and `https routing` :
 
