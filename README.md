@@ -419,4 +419,102 @@ In order to test whether the renew config is working properly, we can do a test 
 sudo certbot renew --dry-run
 ```
 
-~[dry-run](dry-run.png)
+![dry-run](doc/dry-run.png)
+
+If your output looks like above then the ssl certificates auto renew setup was successfull.
+
+After actual renew run the command `docker exec -it nginx nginx -s reload` will also be executed automatically since we added
+it in `renew config` as a `renew_hook`. This will make nginx load newly generated ssl certificates. 
+
+Each certificates with this method will have about `3 Months` expiry date. When the expiry closes the `30 Days` the `Renew Config` will be
+used to generate fresh certificates automatically.
+
+___
+
+## Update Nginx to load SSL certificates
+
+By now, you should have your `Web Project` up and running along with `SSL Certificates` in host.
+
+All, we need to do now is modify `Nginx Config` to load these `SSL Certificates` and also route alll `http requests on port 80`
+to `https on port 443`.
+
+First make sure you are at the repositroy root.
+
+The Config for SSL Cerfificates has already been provided with the repository named `default_ssl.conf`.
+
+First rename the `default.conf` :
+
+```sh
+sudo mv default.conf default.conf.bk
+```
+
+Now rename the `default_ssl.conf` into `default-conf` :
+
+```sh
+sudo mv default.ssl.conf default.conf
+```
+
+Now open the new default `Nginx Config` :
+
+```sh
+sudo vi server/nginx/default.conf
+```
+
+```sh
+# Nginx configuration
+
+server {
+	listen 80;
+	server_name host_name.com www.host_name.com;
+	
+	location /.well-known {
+		alias /var/www/html/web_root/.well-known;
+	}
+
+	location / {
+		return 301 https://$host$request_uri;
+	}
+}
+
+server {
+	listen 443 ssl;
+	server_name host_name.com www.host_name.com;
+	
+	ssl_certificate /etc/letsencrypt/live/host_name.com/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/host_name.com/privkey.pem;
+	include /etc/letsencrypt/options-ssl-nginx.conf;
+	ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+	
+	root /var/www/html/web_root;
+	index index.php;
+    
+	location / {
+		try_files $uri $uri/ /index.php;
+	}
+	
+	location ~ \.php$ {
+		fastcgi_pass php:9000;
+		include fastcgi_params;
+		fastcgi_index index.php;
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+	}
+}
+
+```
+
+Like previously done replace `host_name.com` with your domain name and `web_root` with top level directory of your
+domain name in all occurences.
+
+Make sure you also replace `host_name.com` in `ssl certificates` section with the one ssl certificates is generated for
+
+Now save and exit the config using `wq`
+
+Finally reload the nginx to load new `config` along with `ssl certificates` and `https routing` :
+
+```sh
+docker exec nginx nginx -s reload
+```
+
+Now, test your domain via internet it should be fully secured
+
+![fully-secured]()
