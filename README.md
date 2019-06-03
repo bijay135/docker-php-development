@@ -395,7 +395,12 @@ You can manually check the certificates by using this command, replace `domain_n
 sudo ls /etc/letsencrypt/live/domain_name.com
 ```
 
-![certificates]()
+![ssl-certificates](doc/ssl-certificates.png)
 
+To check the renewal config file use the command, replace `domain_name.com` with your domain name :
+
+```sh
+sudo vi  /etc/letsencrypt/renewal/domain_name.com.conf
+```
 
 
