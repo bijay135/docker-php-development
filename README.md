@@ -31,7 +31,7 @@
 
     Additionally, generate SSL certificates for securing server and setup auto renew
 
-8. [Update Nginx to load SSL certificates](#update-nginx-to-load-ssl-certificates)
+8. [Update Nginx to load SSL certificates](#update-nginx-to-load-ssl-certificates) [`Optional`]
 
     Finally, update your Nginx config to load the SSL certificates and route https:// by default
 
