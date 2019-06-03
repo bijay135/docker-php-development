@@ -403,4 +403,20 @@ To check the renewal config file use the command, replace `domain_name.com` with
 sudo vi  /etc/letsencrypt/renewal/domain_name.com.conf
 ```
 
+![renew-config](doc/renew-config.png)
 
+Update the `webroot_path` with your proper host path if needed and add the command at the last like the figure above :
+
+```sh
+renew_hook = "docker exec -it nginx nginx -s reload"
+```
+
+Save and quit the config using `:wq`
+
+In order to test whether the renew config is working properly, we can do a test renew run using the command below :
+
+```sh
+sudo certbot renew --dry-run
+```
+
+~[dry-run](dry-run.png)
