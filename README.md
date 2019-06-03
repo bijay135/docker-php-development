@@ -517,4 +517,4 @@ docker exec nginx nginx -s reload
 
 Now, test your domain via internet it should be fully secured
 
-![fully-secured]()
+![fully-secured](doc/fully-secured.png)
