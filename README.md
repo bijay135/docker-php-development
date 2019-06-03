@@ -573,4 +573,20 @@ Stop and delete all docker services using docker compose
 docker-compose down
 ```
 
+Check container logs
+
+```sh
+docker container_name logs
+```
+
+Replace `container_name` with your container like `Nginx`
+
+Check docker-compose logs
+
+First move into project root then :
+
+```sh
+docker-compose logs
+```
+
 ___
