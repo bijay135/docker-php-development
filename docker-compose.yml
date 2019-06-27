@@ -43,7 +43,5 @@ services:
         restart: always
         ports:
             - "8000:80"
-        environment:
-            MYSQL_ROOT_PASSWORD: root
         links: 
             - mysql:db
