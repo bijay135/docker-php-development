@@ -18,8 +18,8 @@ services:
         
     php:
         build: ./server
-        image: php-ci-cd
-        container_name: php-ci-cd
+        image: php-mysqli:7-fpm
+        container_name: php
         restart: always
         volumes:
             - ./server/php/php.ini:/usr/local/etc/php/conf.d/php.ini
