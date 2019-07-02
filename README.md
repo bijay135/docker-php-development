@@ -144,13 +144,13 @@ ___
 Git clone this repository into your server :
 
 ```sh
-git clone https://sakwo.sastodeal.com/bijay135/php-ci-cd
+git clone https://sakwo.sastodeal.com/bijay135/docker-php-enviroment
 ```
 
 Go to the project directory :
 
 ```sh
-cd php-ci-cd
+cd docker-php-enviroment
 ```
 
 ### Repository Tree Structure
@@ -316,8 +316,6 @@ services:
         restart: always
         ports:
             - "8000:80"
-        environment:
-            MYSQL_ROOT_PASSWORD: root
         links: 
             - mysql:db
 ```
