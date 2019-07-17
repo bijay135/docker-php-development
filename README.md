@@ -1,4 +1,4 @@
-# PHP enviroment setup using Docker
+# PHP development enviroment setup using Docker
 ### Using NGINX, PHP-FPM, MySQl, PHPMyAdmin
 
 ## Overview
@@ -144,13 +144,13 @@ ___
 Git clone this repository into your server :
 
 ```sh
-git clone https://sakwo.sastodeal.com/bijay135/docker-php-enviroment
+git clone https://sakwo.sastodeal.com/bijay135/docker-php-development
 ```
 
 Go to the project directory :
 
 ```sh
-cd docker-php-enviroment
+cd docker-php-development
 ```
 
 ### Repository Tree Structure
